@@ -11,7 +11,8 @@ string PluginsFolder(){
 }
 
 string rootplugins = PluginsFolder(); 
-Console.WriteLine(rootplugins);
+Console.WriteLine("Copiar los plugins a la carpeta: " + rootplugins);
+Console.ReadLine();
 
 try
 {
