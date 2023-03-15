@@ -4,7 +4,9 @@
 
 # Intro
 
-Demos sobre la creación de aplicaciones bajo el patrón plugins
+Demos sobre la creación de aplicaciones bajo el patrón plugins.
+
+Todos los ejemplos son compilados en dotnet core 7 en ubuntu 20.04
 
 # Materiales de apoyo
 
