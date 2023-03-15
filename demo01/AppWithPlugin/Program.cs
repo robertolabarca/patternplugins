@@ -3,13 +3,22 @@ using System.Reflection;
 using AppWithPlugin;
 
 // See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+
+string PluginsFolder(){
+    string pexe = Path.GetDirectoryName(typeof(Program).Assembly.Location);
+    string pplugins = Directory.GetParent(pexe).Parent.Parent.FullName + "/plugins";
+    return pplugins;
+}
+
+string rootplugins = PluginsFolder(); 
+Console.WriteLine(rootplugins);
+
 try
 {
     var loadLocations = new string[] {
-        "/home/robertolabarca/Documentos/projects/GitHub/patternplugins/demo01/Plugins01/bin/Debug/net7.0/Plugins01.dll",
-        "/home/robertolabarca/Documentos/projects/GitHub/patternplugins/demo01/Plugins02/bin/Debug/net7.0/Plugins02.dll",
-        "/home/robertolabarca/Documentos/projects/GitHub/patternplugins/demo01/Plugins03/bin/Debug/net7.0/Plugins03.dll"
+        rootplugins + "/Plugins01.dll",
+        rootplugins + "/Plugins02.dll",
+        rootplugins + "/Plugins03.dll"
     };
     IEnumerable <ICommand> tasks = loadLocations.SelectMany(pluginPath => {
         Assembly pluginAssembly = LoadPlugin(pluginPath);
